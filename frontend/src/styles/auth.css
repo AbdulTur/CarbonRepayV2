@@ -1,0 +1,30 @@
+.auth-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.auth-form .form-group {
+  margin-bottom: 15px;
+}
+
+.auth-form .btn {
+  width: 100%;
+}
+
+.text-center {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.text-center p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.mt-3 {
+  margin-top: 15px;
+}

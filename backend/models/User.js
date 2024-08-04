@@ -15,12 +15,17 @@ userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
+  console.log(`Hashed password (pre-save): ${this.password}`); // Log hashed password before saving
   next();
 });
 
 // Compare password
-userSchema.methods.comparePassword = async function (password) {
-  return bcrypt.compare(password, this.password);
+userSchema.methods.comparePassword = async function (inputPassword) {
+  console.log(`Input password: ${inputPassword}`);
+  console.log(`Stored hash: ${this.password}`);
+  const isMatch = await bcrypt.compare(inputPassword, this.password);
+  console.log(`Comparing input password: ${inputPassword} with stored hash: ${this.password}. Match: ${isMatch}`);
+  return isMatch;
 };
 
 // Generate JWT token
