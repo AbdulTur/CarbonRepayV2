@@ -8,8 +8,8 @@ const vehicleSchema = new mongoose.Schema({
   fuelEfficiency: { type: Number, required: true },
   emissionRate: { type: Number, required: true },
   loadCapacity: { type: Number },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Add user reference
-  company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' } // Make this field optional
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, 
+  company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' } 
 });
 
 module.exports = mongoose.model('Vehicle', vehicleSchema);

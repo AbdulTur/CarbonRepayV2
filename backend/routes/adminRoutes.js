@@ -40,7 +40,7 @@ router.get('/totals/:companyId', async (req, res) => {
     const records = await DistanceRecord.find({ user: { $in: userIds } });
 
     const totalEmissions = records.reduce((acc, record) => acc + record.emission, 0);
-    const totalRebates = totalEmissions * 10.5; // Update this to match the logic in your emissionRoutes
+    const totalRebates = totalEmissions * 10.5; 
 
     res.status(200).send({ totalEmissions, totalRebates });
   } catch (error) {
@@ -85,7 +85,7 @@ router.post('/distances/add', async (req, res) => {
     const records = await DistanceRecord.find({ user: { $in: userIds } });
 
     const totalEmissions = records.reduce((acc, record) => acc + record.emission, 0);
-    const totalRebates = totalEmissions * 10.5; // Update this to match the logic in your emissionRoutes
+    const totalRebates = totalEmissions * 10.5; 
 
     res.status(201).send({ distanceRecord, totalEmissions, totalRebates });
   } catch (error) {

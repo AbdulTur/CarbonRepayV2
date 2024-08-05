@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role: { type: String, enum: ['admin', 'driver', 'individual'], required: true },
-  company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' }, // Reference to Company model
+  company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' }, 
   vehicles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Vehicle' }]
 });
 
@@ -15,7 +15,7 @@ userSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   const salt = await bcrypt.genSalt(10);
   this.password = await bcrypt.hash(this.password, salt);
-  console.log(`Hashed password (pre-save): ${this.password}`); // Log hashed password before saving
+  console.log(`Hashed password (pre-save): ${this.password}`); 
   next();
 });
 

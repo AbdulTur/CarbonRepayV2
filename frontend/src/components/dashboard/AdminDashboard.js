@@ -56,7 +56,7 @@ const AdminDashboard = () => {
         engineType,
         fuelEfficiency,
         companyId: user.company,
-        userId: user._id // Ensure userId is sent
+        userId: user._id 
       });
       setVehicles([...vehicles, response.data]);
       setMake('');

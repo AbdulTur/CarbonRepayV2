@@ -3,27 +3,26 @@ function calculateEmissionRate(engineType, year, fuelEfficiency, drivingConditio
 
   switch (engineType.toLowerCase()) {
     case 'petrol':
-      baseRate = 0.2; // kg CO2 per km
+      baseRate = 0.2;
       break;
     case 'diesel':
-      baseRate = 0.25; // kg CO2 per km
+      baseRate = 0.25; 
       break;
     case 'electric':
-      baseRate = 0.05; // kg CO2 per km
+      baseRate = 0.05; 
       break;
     default:
-      baseRate = 0.3; // kg CO2 per km
+      baseRate = 0.3; 
   }
 
-  // Adjust base rate based on driving conditions
+
   if (drivingCondition === 'city') {
     baseRate *= 1.2;
   } else if (drivingCondition === 'highway') {
     baseRate *= 0.9;
   }
 
-  // Further adjustments based on fuel efficiency
-  baseRate *= (fuelEfficiency / 100); // Assuming fuelEfficiency is given in L/100 km
+  baseRate *= (fuelEfficiency / 100); 
 
   const currentYear = new Date().getFullYear();
   const age = currentYear - year;

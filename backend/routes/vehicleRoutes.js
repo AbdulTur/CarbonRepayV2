@@ -3,7 +3,7 @@ const Vehicle = require('../models/Vehicle');
 const router = express.Router();
 const calculateEmissionRate = require('../utils/calculateEmissionRate');
 
-// Add a new vehicle through direct input
+
 router.post('/add', async (req, res) => {
   const { make, model, year, engineType, fuelEfficiency, loadCapacity, userId } = req.body;
   const emissionRate = calculateEmissionRate(engineType, year, fuelEfficiency);
@@ -17,7 +17,7 @@ router.post('/add', async (req, res) => {
   }
 });
 
-// Get all vehicles for a specific user
+
 router.get('/user/:userId', async (req, res) => {
   const { userId } = req.params;
   try {

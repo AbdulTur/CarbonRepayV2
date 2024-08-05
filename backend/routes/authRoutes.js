@@ -34,11 +34,11 @@ router.post('/register', async (req, res) => {
 
     if (role === 'admin') {
       company.admin = user._id;
-      await company.save(); // Save the company with the admin set
+      await company.save(); 
       console.log('Admin set for company:', company);
     } else if (role === 'driver') {
       company.drivers.push(user._id);
-      await company.save(); // Save the company with the driver added
+      await company.save(); 
       console.log('Driver added to company:', company);
     }
 
@@ -50,10 +50,10 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// User login
+
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  console.log('Login request received:', req.body); // Log login request
+  console.log('Login request received:', req.body); 
 
   try {
     const user = await User.findOne({ username });
@@ -62,8 +62,8 @@ router.post('/login', async (req, res) => {
       return res.status(400).send('Invalid username or password.');
     }
 
-    console.log('Stored hash:', user.password); // Log stored hashed password
-    console.log('Input password:', password); // Log input password
+    console.log('Stored hash:', user.password); 
+    console.log('Input password:', password); 
 
     const isMatch = await user.comparePassword(password);
     if (!isMatch) {
@@ -71,8 +71,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).send('Invalid username or password.');
     }
 
-    console.log('Password matched for user:', username); // Log success
-
+    console.log('Password matched for user:', username); 
     const token = user.generateAuthToken();
     res.send({ user, token });
   } catch (error) {
@@ -81,7 +80,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Get all companies (for selecting in the signup form for drivers)
+
 router.get('/companies', async (req, res) => {
   try {
     const companies = await Company.find({}).select('name');

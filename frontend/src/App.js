@@ -7,7 +7,7 @@ import AdminDashboard from './components/dashboard/AdminDashboard';
 import DriverDashboard from './components/dashboard/DriverDashboard';
 import IndividualDashboard from './components/dashboard/IndividualDashboard';
 import PrivateRoute from './components/PrivateRoute';
-import { AuthProvider } from './contexts/AuthContext'; // Import AuthProvider
+import { AuthProvider } from './contexts/AuthContext'; 
 
 const App = () => {
   return (

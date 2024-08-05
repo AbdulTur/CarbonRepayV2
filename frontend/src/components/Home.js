@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../services/api'; // Import the central Axios instance
+import api from '../services/api'; 
 import { Link } from 'react-router-dom';
 import '../styles/home.css';
 
