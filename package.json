@@ -1,15 +1,14 @@
 {
-    "name": "carbonrepay",
-    "version": "1.0.0",
-    "scripts": {
+  "name": "carbonrepay",
+  "version": "1.0.0",
+  "scripts": {
       "start": "cd backend && npm install && node server.js",
       "heroku-postbuild": "cd frontend && npm install && npm run build && cd .. && cp -r frontend/build backend/build"
-    },
-    "engines": {
+  },
+  "engines": {
       "node": "14.x"
-    },
-    "dependencies": {
+  },
+  "dependencies": {
       "dotenv": "^8.2.0"
-    }
   }
-  
+}
