@@ -6,7 +6,7 @@
       "heroku-postbuild": "cd frontend && npm install && npm run build && cd .. && cp -r frontend/build backend/build"
   },
   "engines": {
-      "node": "14.x"
+      "node": "18.x"
   },
   "dependencies": {
       "dotenv": "^8.2.0"
