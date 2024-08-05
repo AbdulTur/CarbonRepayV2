@@ -90,5 +90,4 @@ You need to have the following software installed on your machine:
 
 ### Built With
 
-    ```bash
     Node.js Express MongoDB React Bootstrap
