@@ -1,5 +1,5 @@
-import api from './api';
 import {jwtDecode} from 'jwt-decode';
+import api from './api';
 
 const register = async (userData) => {
   const response = await api.post('/api/auth/register', userData);

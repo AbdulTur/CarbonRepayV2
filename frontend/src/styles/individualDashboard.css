@@ -1,0 +1,53 @@
+.individual-dashboard {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+  }
+  
+  .individual-dashboard h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .individual-dashboard .card {
+    margin-top: 20px;
+  }
+  
+  .individual-dashboard .card-body {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .individual-dashboard .form-select,
+  .individual-dashboard .form-control {
+    margin-bottom: 15px;
+  }
+  
+  .individual-dashboard .btn-primary {
+    width: 100%;
+  }
+  
+  .individual-dashboard .btn-danger {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .individual-dashboard .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .individual-dashboard .shadow-sm {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .individual-dashboard .bg-white {
+    background-color: #ffffff;
+  }
+  
+  .individual-dashboard .rounded {
+    border-radius: 8px;
+  }
+  

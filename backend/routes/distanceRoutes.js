@@ -35,4 +35,28 @@ router.get('/user/:userId', async (req, res) => {
   }
 });
 
+// Reset distance records for a user
+router.post('/reset', async (req, res) => {
+  const { userId } = req.body;
+  try {
+    await DistanceRecord.deleteMany({ user: userId });
+    res.status(200).send({ message: 'Records reset successfully' });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+// Get total emissions and rebates for a user
+router.get('/totals/:userId', async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const records = await DistanceRecord.find({ user: userId });
+    const totalEmissions = records.reduce((total, record) => total + record.emission, 0);
+    const totalRebates = totalEmissions * 10.5;
+    res.status(200).send({ totalEmissions, totalRebates });
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 module.exports = router;

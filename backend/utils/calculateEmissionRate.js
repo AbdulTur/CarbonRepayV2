@@ -1,4 +1,4 @@
-function calculateEmissionRate(engineType, year) {
+function calculateEmissionRate(engineType, year, fuelEfficiency, drivingCondition) {
   let baseRate = 0;
 
   switch (engineType.toLowerCase()) {
@@ -14,6 +14,16 @@ function calculateEmissionRate(engineType, year) {
     default:
       baseRate = 0.3; // kg CO2 per km
   }
+
+  // Adjust base rate based on driving conditions
+  if (drivingCondition === 'city') {
+    baseRate *= 1.2;
+  } else if (drivingCondition === 'highway') {
+    baseRate *= 0.9;
+  }
+
+  // Further adjustments based on fuel efficiency
+  baseRate *= (fuelEfficiency / 100); // Assuming fuelEfficiency is given in L/100 km
 
   const currentYear = new Date().getFullYear();
   const age = currentYear - year;

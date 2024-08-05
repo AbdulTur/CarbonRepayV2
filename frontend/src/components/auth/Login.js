@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../contexts/AuthContext';
 import authService from '../../services/authService';
 import '../../styles/auth.css';
 
@@ -7,11 +8,12 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await authService.login({ username, password });
+      await login({ username, password });
       const user = authService.getCurrentUser();
       if (user.role === 'admin') {
         navigate('/dashboard/admin');

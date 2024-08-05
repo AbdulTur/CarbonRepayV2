@@ -9,6 +9,7 @@ const Register = () => {
   const [role, setRole] = useState('individual');
   const [companyName, setCompanyName] = useState('');
   const [companies, setCompanies] = useState([]);
+  const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,8 +25,38 @@ const Register = () => {
     fetchCompanies();
   }, []);
 
+  const validatePassword = (password) => {
+    const minLength = 8;
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (password.length < minLength) {
+      return 'Password must be at least 8 characters long.';
+    }
+    if (!hasUpperCase) {
+      return 'Password must contain at least one uppercase letter.';
+    }
+    if (!hasLowerCase) {
+      return 'Password must contain at least one lowercase letter.';
+    }
+    if (!hasNumber) {
+      return 'Password must contain at least one number.';
+    }
+    if (!hasSpecialChar) {
+      return 'Password must contain at least one special character.';
+    }
+    return '';
+  };
+
   const handleRegister = async (e) => {
     e.preventDefault();
+    const passwordValidationError = validatePassword(password);
+    if (passwordValidationError) {
+      setPasswordError(passwordValidationError);
+      return;
+    }
     try {
       await authService.register({ username, password, role, companyName });
       const user = authService.getCurrentUser();
@@ -52,6 +83,7 @@ const Register = () => {
         <div className="mb-3">
           <label className="form-label">Password</label>
           <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          {passwordError && <div className="text-danger">{passwordError}</div>}
         </div>
         <div className="mb-3">
           <label className="form-label">Role</label>

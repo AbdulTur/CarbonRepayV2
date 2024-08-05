@@ -1,0 +1,61 @@
+.home-container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.home-form .form-group {
+  margin-bottom: 15px;
+}
+
+.home-form .btn {
+  width: 100%;
+}
+
+.result {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.benefits-section {
+  margin-top: 40px;
+}
+
+.card {
+  margin-top: 20px;
+  height: 100%;
+}
+
+.card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1.25rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.btn-outline-primary {
+  width: 100%;
+}
+
+.text-center {
+  margin-top: 20px;
+}
+
+.text-center p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}

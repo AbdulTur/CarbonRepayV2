@@ -3,10 +3,10 @@ const router = express.Router();
 const calculateEmission = require('../utils/calculateEmission');
 const calculateEmissionRate = require('../utils/calculateEmissionRate');
 
-// Calculate emissions for a given vehicle parameters
+// Calculate emissions for given vehicle parameters
 router.post('/calculate', async (req, res) => {
-  const { engineType, year, distance, cargoWeight } = req.body;
-  const emissionRate = calculateEmissionRate(engineType, year);
+  const { engineType, year, fuelEfficiency, drivingCondition, distance, cargoWeight } = req.body;
+  const emissionRate = calculateEmissionRate(engineType, year, fuelEfficiency, drivingCondition);
   const emission = calculateEmission({ emissionRate, loadCapacity: 0 }, distance, cargoWeight);
   const donation = emission * 10.5;
 
